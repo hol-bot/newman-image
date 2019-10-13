@@ -9,7 +9,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PetApiAsserts {
 
     public static void assertContainsPet(List<Pet> petsList, Pet comparedPet) {
-        assertThat(petsList).anySatisfy(petInList -> assertThat(petInList.getId()).isEqualTo(comparedPet.getId()));
+        assertThat(petsList).anySatisfy(petInList -> {
+            assertThat(petInList.getId()).isEqualTo(comparedPet.getId());
+            assertThat(petInList.getName()).isEqualTo(comparedPet.getName());
+            assertThat(petInList.getBirthDate()).isEqualTo(comparedPet.getBirthDate());
+        });
     }
 
 }

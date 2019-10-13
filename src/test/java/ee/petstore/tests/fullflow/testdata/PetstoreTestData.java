@@ -3,6 +3,7 @@ package ee.petstore.tests.fullflow.testdata;
 import ee.petstore.tests.model.Pet;
 import io.restassured.response.Response;
 
+import java.sql.Date;
 import java.time.Instant;
 
 import static ee.petstore.tests.util.TestDataHelper.randomName;
@@ -11,7 +12,8 @@ import static io.restassured.RestAssured.given;
 public class PetstoreTestData {
 
     public static Pet registerRandomPet() {
-        Pet testCat = new Pet(randomName(),"Cat", Instant.now());
+
+        Pet testCat = new Pet(randomName(),"Cat", Date.from(Instant.now()));
 
         Response createdPet =
                 given().

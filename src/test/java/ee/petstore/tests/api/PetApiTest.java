@@ -14,6 +14,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Date;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +55,8 @@ public class PetApiTest extends ConfigurationProperties {
     @Test
     @DisplayName("When pet data is sent to petstore then should add a new pet")
     public void whenSendingPetDataShouldAddPet() {
-        Pet testCat = new Pet(randomName(),"Cat",Instant.now());
+
+        Pet testCat = new Pet(randomName(),"Cat", Date.from(Instant.now()));
 
         Response createdPet =
         given().

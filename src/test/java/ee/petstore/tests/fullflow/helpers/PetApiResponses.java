@@ -2,6 +2,7 @@ package ee.petstore.tests.fullflow.helpers;
 
 import ee.petstore.tests.config.ConfigurationProperties;
 import ee.petstore.tests.model.Pet;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import java.util.List;
@@ -21,6 +22,17 @@ public class PetApiResponses extends ConfigurationProperties {
 
         List<Pet> Pets = petsResponse.jsonPath().getList(".", Pet.class);
         return Pets;
+    }
+
+    public static void updatePetName(Pet pet) {
+            given().
+                pathParam("petId",pet.getId()).
+                body(pet).
+                contentType(ContentType.JSON).
+            when().
+                put("/api/v1/pet/{petId}").
+            then().
+                statusCode(200);
     }
 
 }

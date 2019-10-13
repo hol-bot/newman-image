@@ -1,25 +1,26 @@
 package ee.petstore.tests.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.Instant;
+import java.util.Date;
 
 public class Pet {
 
     private String petId;
     private String name;
     private String petType;
-    private String birthDate;
+    private Date birthDate;;
 
-    public Pet(String name, String petType, Instant birthDate) {
+    public Pet(String name, String petType, Date birthDate) {
         this.name = name;
         this.petType = petType;
-        this.birthDate = birthDate.toString();
+        this.birthDate = birthDate;
     }
 
     @JsonCreator
-    public Pet(@JsonProperty("petId") String petId, @JsonProperty("name") String name, @JsonProperty("petType") String petType, @JsonProperty("birthDate") String birthDate) {
+    public Pet(@JsonProperty("petId") String petId, @JsonProperty("name") String name, @JsonProperty("petType") String petType, @JsonProperty("birthDate") Date birthDate) {
         this.petId = petId;
         this.name = name;
         this.petType = petType;
@@ -50,12 +51,12 @@ public class Pet {
         this.petType = petType;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Instant birthDate) {
-        this.birthDate = birthDate.toString();
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
 }

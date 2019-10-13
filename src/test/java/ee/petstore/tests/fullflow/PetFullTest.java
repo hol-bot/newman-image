@@ -12,8 +12,10 @@ import java.util.List;
 
 import static ee.petstore.tests.fullflow.helpers.PetApiAsserts.assertContainsPet;
 import static ee.petstore.tests.fullflow.helpers.PetApiResponses.getPetsList;
+import static ee.petstore.tests.fullflow.helpers.PetApiResponses.updatePetName;
 import static ee.petstore.tests.fullflow.testdata.PetstoreTestData.*;
 import static ee.petstore.tests.util.CleanupHelper.addPetToCleanupList;
+import static ee.petstore.tests.util.TestDataHelper.randomName;
 
 public class PetFullTest extends ConfigurationProperties {
 
@@ -31,6 +33,8 @@ public class PetFullTest extends ConfigurationProperties {
     public void whenPetIsRegisteredThenCanReadAndUpdateData() {
 
         Pet randomPet = registerRandomPet();
+        randomPet.setName(randomName());
+        updatePetName(randomPet);
         assertContainsPet(getPetsList(),randomPet);
 
         addPetToCleanupList(CREATED_PETS, randomPet);
