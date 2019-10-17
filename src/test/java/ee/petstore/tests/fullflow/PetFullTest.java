@@ -4,7 +4,6 @@ import com.sun.xml.bind.v2.TODO;
 import ee.petstore.tests.config.ConfigurationProperties;
 import ee.petstore.tests.model.Pet;
 import ee.petstore.tests.util.CleanupHelper;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -47,7 +46,6 @@ public class PetFullTest extends ConfigurationProperties {
         addPetToCleanupList(CREATED_PETS, randomPet);
     }
 
-    @Ignore
     @Test
     @DisplayName("Given pet is registered to petstore " +
             "when we delete the pet from the petstore " +

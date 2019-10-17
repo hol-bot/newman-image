@@ -10,7 +10,6 @@ import static ee.petstore.tests.util.TestDataHelper.randomName;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
 import io.restassured.response.Response;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -73,7 +72,6 @@ public class PetApiTest extends ConfigurationProperties {
         addIdFromResponseToCleanupList(CREATED_PETS, "petId", createdPet);
     }
 
-    @Ignore
     @Test
     @DisplayName("When I update a non-existent pet then I cannot create a new pet")
     public void whenUpdatingNonExistentPetThenGetError() {

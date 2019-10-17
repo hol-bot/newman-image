@@ -10,6 +10,11 @@ repositories {
     mavenCentral()
 }
 
+test {
+    useJUnitPlatform()
+    include '**test.java.ee.petstore.tests/*'
+}
+
 dependencies {
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.5.2'
     testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
